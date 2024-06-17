@@ -1,6 +1,6 @@
 # Ruby Programming Language
 # **RUBY**
-<img src="Image0.webp" alt="" style="width:100%;"/>
+<img src="Image0.webp" alt="" style="width:70%;"/>
 
 ## Table of Content:
 1. Introduction
