@@ -42,7 +42,7 @@ This documentation has been prepared for beginners to help them understand the b
   $ sudo apt install code
 ```
 ## Installing Ruby on VsCode
-<img src="Image9.png" alt="" style="width:50%;"/>
+![Image9](https://github.com/user-attachments/assets/7b1ab07d-8f0c-4330-a094-8fe2276d8aec)
 
 ## Ruby Basic Syntax
 ### Print "Hello World" in .rb file extension
