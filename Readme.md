@@ -6,8 +6,7 @@
 1. Introduction
 2. Audience
 3. Getting Started with Ruby
-   - Downloading and Installing Ruby on Windows 
-   - Installing Ruby on Ubuntu
+   - Installing Ruby on VsCode
 4. Basic Syntax
 5. Data Types
 6. Control Structures
@@ -24,46 +23,29 @@ Ruby is a scripting language designed by Yukihiro Matsumoto, also known as Matz.
 ## Audience
 This documentation has been prepared for beginners to help them understand the basic to advanced concepts related to Ruby Scripting language.
 
-## Downloading and Installing Ruby on Windows
-All the versions of Ruby for Windows can be downloaded from rubyinstaller.org. Download the latest version and follow the further instructions for its Installation.
-<img src="Image1.png" alt="" style="width:100%;"/>
-
-## Beginning with the installation:
-
-- Getting Started with License Agreement:
-  <img src="./Image2.png" alt="" style="width:100%;"/>
-
-- Selecting Installation Destination:
-  <img src="./Image3.png" alt="" style="width:100%;"/>
-  
-- Selecting components to be installed:
-  <img src="./Image4.png" alt="" style="width:100%;"/>
-
-- Extracting Files and Installing:
-  <img src="./Image5.png" alt="" style="width:100%;"/>
-
-- Finishing Installation:
-  <img src="./Image6.png" alt="" style="width:100%;"/>
-
-## Installing Ruby on Ubuntu
-
-- Update the system package repository information:
+## Prerequisite-
+### Installing VsCode
+-Download the VS Code .deb package:
+```bash
+   wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+   sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
+   sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > 
+   /etc/apt/sources.list.d/vscode.list'
+   rm -f packages.microsoft.gpg
+```
+-Update the package list:
 ```bash
   $ sudo apt update
 ```
-- Use the following command to install Ruby:
+-Install VS Code:
 ```bash
-  $ sudo apt install ruby-full -y
-``` 
-<img src="./image7.png" alt="" style="width:100%;"/>
-
-- Once the installation completes, verify it by checking the current Ruby version:
-```bash
-  $ ruby --version
+  $ sudo apt install code
 ```
+## Installing Ruby on VsCode
+<img src="Image9.png" alt="" style="width:50%;"/>
 
 ## Ruby Basic Syntax
-### Print "Hello World"
+### Print "Hello World" in .rb file extension
 
 ### this line will print "Hello World!" as output.
 ```bash 
@@ -91,12 +73,10 @@ Example of BEGIN and END
 ### Ruby program of BEGIN and END 
 puts "This is main body of program"
    
-END 
-{ 
+END { 
    puts "END of the program"
 } 
-BEGIN 
-{ 
+BEGIN { 
    puts "BEGINNING of the Program"
 } 
 ```
@@ -145,22 +125,25 @@ Data types in Ruby represents different types of data like text, string, numbers
 ```bash
 #Ruby program to illustrate the Strings Data Type:
 
-    #!/usr/bin/ruby -w
-    puts "String Data Type";
-    puts 'escape using "\\"';
-    puts 'That\'s right';
+ E.g 1
+ name = "Lavi Sharma"
+ puts "Hi my name is "+ name
+
+ E.g 2
+ age = 22
+ string = "Hi I'm #{age} years old"
+ puts string
 ```
 
 - Hashes:
  A hash assign its values to its key. Value to a key is assigned by => sign. A key pair is separated with a comma between them and all the pairs are enclosed within curly braces. A hash in Ruby is like an object literal in JavaScript or an associative array in PHP. They’re made similarly to arrays. A trailing comma is ignored.
 ```bash
 #Ruby program to illustrate the Hashes Data Type
- 
-    #!/usr/bin/ruby
-    hsh = colors = { "red" => 0xf00, "green" => 0x0f0, "blue" => 0x00f }
-    hsh.each do |key, value|
-    print key, " is ", value, "\n"
-    end
+
+ hash = colors = { "red" => 30, "green" => 40, "blue" => 50 }
+ hash.each do |key, value|
+ print key, " is ", value, "\n"
+ end
 ```
 
 - Arrays: 
@@ -168,7 +151,6 @@ An array stores data or list of data. It can contain all types of data. Data in 
 ```bash
 #Ruby program to illustrate the Arrays Data Type
 
-    #!/usr/bin/ruby
     ary = [ "fred", 10, 3.14, "This is a string", "last element", ]
     ary.each do |i|
     puts i
@@ -257,8 +239,6 @@ Method is a collection of statements that perform some specific task and return 
 ```bash
     # Ruby program to illustrate the defining and calling of method
 
-    #!/usr/bin/ruby
-
     # Here my_method is the method name
     def my_method
 
@@ -287,11 +267,6 @@ Method is a collection of statements that perform some specific task and return 
 
     # calling method with parameters
     my_method "Lavi", "Sharma"
-
-    puts ""
-
-    puts "Without Parameters"
-    puts ""
 
     # calling method without passing parameters
     my_method
@@ -374,29 +349,34 @@ Example:
     # module consist 2 methods 
     module One
         def method1 
-    end
-    def method2
-    end
+            puts "I'm in method1 of module One"
+        end
+        def method2
+            puts "I'm in method2 of module Two"
+        end
     end
     
     # module consist 2 methods 
     module Two
-    def method_1 
-    end
-    def method_2
-    end
+        def method_1 
+            puts "I'm in method1 of module Two"
+        end
+        def method_2
+            puts "I'm in method2 of module Two"
+        end
     end
     
     # Creating a class 
-    class main_class 
+    class MainClass 
     include One
     include Two
     def class_method 
+        puts "I'm in MainClass of class_method"
     end
     end
     
     # Creating object 
-    obj = main_class.new
+    obj = MainClass.new
     
     # Calling methods 
     obj.method1
