@@ -18,7 +18,7 @@
 12. Reference links
 
 ## Introduction
-Ruby is a scripting language designed by Yukihiro Matsumoto, also known as Matz. It runs on a variety of platforms, such as Windows, Mac OS, and the various versions of UNIX. This documentation gives you a complete understanding on Ruby.
+Ruby is a programming language designed by Yukihiro Matsumoto, also known as Matz. It runs on a variety of platforms, such as Windows, Mac OS, and the various versions of UNIX. This documentation gives you a complete understanding on Ruby.
 
 ## Audience
 This documentation has been prepared for beginners to help them understand the basic to advanced concepts related to Ruby Scripting language.
@@ -28,9 +28,12 @@ This documentation has been prepared for beginners to help them understand the b
 -Download the VS Code .deb package:
 ```bash
    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+
    sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
+
    sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > 
    /etc/apt/sources.list.d/vscode.list'
+
    rm -f packages.microsoft.gpg
 ```
 -Update the package list:
@@ -405,29 +408,22 @@ Example:
 ```bash
     # Ruby program to create the user defined exception and handling it 
     
-    # defining a method 
-    def raise_and_rescue      
-    begin
-            
-        puts 'This is Before Exception Arise!'
-            
-        # using raise to create an exception   
-        raise 'Exception Created!'
-    
-        puts 'After Exception' 
-    
-    # using Rescue method 
-    rescue    
-        puts 'Finally Saved!'    
-        
-    end    
-    
-    puts 'Outside from Begin Block!'    
-    
-    end    
-    
-    # calling method 
-    raise_and_rescue 
+def divide(a, b)
+  begin
+    if b==0
+      raise "Error while division by zero"
+    else 
+      result=a/b 
+      puts "result is: #{result}"
+    end   
+  rescue => e
+      puts "#{e.message}"
+  end
+end
+
+divide(10, 2)  # This will execute without error
+divide(10, 0)  # This will raise an exception and rescue it
+
 ``` 
 ## Conclusion:
 Ruby is a dynamic, open-source programming language that emphasizes simplicity, productivity, and elegance. Created by Yukihiro "Matz" Matsumoto, Ruby has become a popular language for a wide range of applications, from web development to data processing.
